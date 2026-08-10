@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: apexshop
+    env: python
+    region: frankfurt
+    plan: free
+    rootDir: mobile_ecommerce
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn mobile_ecommerce.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.6
